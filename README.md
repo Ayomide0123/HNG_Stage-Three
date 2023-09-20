@@ -54,10 +54,10 @@ React, Bootstrap
 
 ## Screenshots
 
-![image](https://github.com/Ayomide0123/HNG_Stage-Two/blob/main/src/assets/screenshot/homepage.png)
+![image](https://github.com/Ayomide0123/HNG_Stage-Three/blob/main/src/img/screenshot/Screenshot%20(27).png)
 
-![image](https://github.com/Ayomide0123/HNG_Stage-Two/blob/main/src/assets/screenshot/movie.png)
+![image](https://github.com/Ayomide0123/HNG_Stage-Three/blob/main/src/img/screenshot/Screenshot%20(28).png)
 
-![image](https://github.com/Ayomide0123/HNG_Stage-Two/blob/main/src/assets/screenshot/search.png)
+![image](https://github.com/Ayomide0123/HNG_Stage-Three/blob/main/src/img/screenshot/Screenshot%20(29).png)
 
-Live Demo: https://bumblebeestage2.netlify.app/
+Live Demo: https://bumblebeestage3.netlify.app/
