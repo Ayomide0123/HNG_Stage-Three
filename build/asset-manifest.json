@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/static/css/main.831c0641.css",
+    "main.js": "/static/js/main.864cb214.js",
+    "static/media/pexels_10.jpg": "/static/media/pexels_10.c5edc99df5f8fd145622.jpg",
+    "static/media/pexels_7.jpg": "/static/media/pexels_7.18e40fe9ac21877a5608.jpg",
+    "static/media/pexels_12.jpg": "/static/media/pexels_12.50de932591840ec4c175.jpg",
+    "static/media/pexels_5.jpg": "/static/media/pexels_5.7244a5411e9fab705f5b.jpg",
+    "static/media/pexels_9.jpg": "/static/media/pexels_9.966b980f968344fd65ae.jpg",
+    "static/media/pexels_11.jpg": "/static/media/pexels_11.54f18e4268c18931805d.jpg",
+    "static/media/pexels_13.jpg": "/static/media/pexels_13.7beac62f0db97768505c.jpg",
+    "static/media/pexels_6.jpg": "/static/media/pexels_6.78a088574a57f3e2efce.jpg",
+    "static/media/pexels_2.jpg": "/static/media/pexels_2.2fccf594e651f5d19987.jpg",
+    "static/media/pexels_3.jpg": "/static/media/pexels_3.48771415b467c11b6917.jpg",
+    "static/media/pexels_4.jpg": "/static/media/pexels_4.6e5e188e96446c7e0ff0.jpg",
+    "static/media/pexels_1.jpg": "/static/media/pexels_1.f1d03d62a52da346a819.jpg",
+    "static/media/pexels_8.jpg": "/static/media/pexels_8.ae57c76a089ff19d2bdc.jpg",
+    "index.html": "/index.html",
+    "main.831c0641.css.map": "/static/css/main.831c0641.css.map",
+    "main.864cb214.js.map": "/static/js/main.864cb214.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.831c0641.css",
+    "static/js/main.864cb214.js"
+  ]
+}
