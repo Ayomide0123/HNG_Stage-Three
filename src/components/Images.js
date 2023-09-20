@@ -19,19 +19,19 @@ import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 
 function Images() {
   const initialImages = [
-    { id: 'image1', src: img1, tags: ['stuff', 'landscape'] },
-    { id: 'image2', src: img2, tags: ['stuff', 'landscape'] },
-    { id: 'image3', src: img3, tags: ['stuff', 'landscape'] },
-    { id: 'image4', src: img4, tags: ['stuff', 'landscape'] },
-    { id: 'image5', src: img5, tags: ['stuff', 'landscape'] },
-    { id: 'image6', src: img6, tags: ['stuff', 'landscape'] },
-    { id: 'image7', src: img7, tags: ['nature', 'things'] },
-    { id: 'image8', src: img8, tags: ['nature', 'things'] },
-    { id: 'image9', src: img9, tags: ['nature', 'things'] },
-    { id: 'image10', src: img10, tags: ['nature', 'things'] },
-    { id: 'image11', src: img11, tags: ['nature', 'landscape'] },
-    { id: 'image12', src: img12, tags: ['nature', 'landscape'] },
-    { id: 'image13', src: img13, tags: ['nature', 'landscape'] },
+    { id: 'image1', src: img1, tags: ['animals'] },
+    { id: 'image2', src: img2, tags: ['animals'] },
+    { id: 'image3', src: img3, tags: ['animals'] },
+    { id: 'image4', src: img4, tags: ['animals'] },
+    { id: 'image5', src: img5, tags: ['animals'] },
+    { id: 'image6', src: img6, tags: ['cars'] },
+    { id: 'image7', src: img7, tags: ['books'] },
+    { id: 'image8', src: img8, tags: ['books'] },
+    { id: 'image9', src: img9, tags: ['books'] },
+    { id: 'image10', src: img10, tags: ['cars'] },
+    { id: 'image11', src: img11, tags: ['books'] },
+    { id: 'image12', src: img12, tags: ['cars'] },
+    { id: 'image13', src: img13, tags: ['cars'] },
   ];
 
   // Initialize images with all images
@@ -76,7 +76,7 @@ function Images() {
       <div className="search-container">
         <input
           type="text"
-          placeholder="Search for Images (e.g Animals, Cars, Books..)"
+          placeholder="Search for Images (e.g animals, cars, books..)"
           className="search-input"
           value={searchQuery}
           onChange={(e) => filterImages(e.target.value)}
