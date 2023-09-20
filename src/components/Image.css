@@ -1,0 +1,40 @@
+.imgContainer {
+  width: 100%;
+  max-width: 1200px; /* Adjust the maximum width as needed */
+  margin: auto;
+  padding: 0 1rem; /* Add some padding to center the content and improve readability */
+}
+
+.image-list {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(250px, 1fr)
+  ); /* Adjust the minmax values for responsiveness */
+  gap: 1rem;
+}
+
+.listed img {
+  width: 100%;
+  max-width: 100%; /* Ensure images don't exceed their container */
+  height: auto; /* Maintain aspect ratio */
+}
+
+/* CSS for loading spinner */
+.loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 60vh; /* Adjust the minimum height as needed */
+  font-size: 24px;
+}
+
+/* Media query for smaller screens (e.g., mobile devices) */
+@media (max-width: 768px) {
+  .image-list {
+    grid-template-columns: repeat(
+      auto-fill,
+      minmax(150px, 1fr)
+    ); /* Adjust for smaller screens */
+  }
+}
