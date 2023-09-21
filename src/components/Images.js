@@ -39,7 +39,6 @@ function Images() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Simulate loading delay
     setTimeout(() => {
       setImages(initialImages);
       setLoading(false);
@@ -59,7 +58,7 @@ function Images() {
     const draggedImageId = e.dataTransfer.getData('text/plain');
     const updatedImages = [...images];
     const draggedImage = updatedImages.find((image) => image.id === draggedImageId);
-    
+
     if (draggedImage) {
       const currentIndex = updatedImages.findIndex((image) => image.id === draggedImageId);
       updatedImages.splice(currentIndex, 1);
@@ -71,8 +70,16 @@ function Images() {
   const filterImages = (query) => {
     setSearchQuery(query);
 
-    // Implement your image filtering logic here
-    // Update the 'images' state with the filtered images
+    
+    const filteredImages = initialImages.filter((image) => {
+      
+      return image.tags.some((tag) =>
+        tag.toLowerCase().includes(query.toLowerCase())
+      );
+    });
+
+    
+    setImages(filteredImages);
   };
 
   return (
