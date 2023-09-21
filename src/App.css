@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Slabo+27px&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Zilla+Slab&display=swap");
 
 :root {
   --primary: #a5c7df;
@@ -9,7 +9,7 @@
 
 body {
   margin: 0;
-  font-family: "Slabo 27px", serif;
+  font-family: "Zilla Slab", serif !important;
   background-image: linear-gradient(
     to right top,
     #b7d3fc,

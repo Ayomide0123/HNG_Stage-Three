@@ -13,19 +13,16 @@ export const AuthProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  // Initialize Firebase with your configuration
   const app = initializeApp(firebaseConfig);
   const auth = getAuth(app);
 
   useEffect(() => {
-    // Set up an observer to listen for authentication state changes
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       setCurrentUser(user);
       setLoading(false);
     });
 
     return () => {
-      // Unsubscribe from the observer when the component unmounts
       unsubscribe();
     };
   }, [auth]);
@@ -34,7 +31,6 @@ export const AuthProvider = ({ children }) => {
     try {
       await signInWithEmailAndPassword(auth, email, password);
     } catch (error) {
-      // Handle sign-in error
       console.error('Error signing in:', error);
     }
   };
@@ -43,7 +39,6 @@ export const AuthProvider = ({ children }) => {
     try {
       await signOut(auth);
     } catch (error) {
-      // Handle sign-out error
       console.error('Error signing out:', error);
     }
   };

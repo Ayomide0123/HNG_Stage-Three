@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useAuth } from './authContext';
-import './LogIn.css'; // Import the CSS file
+import './LogIn.css';
 
 function SignIn() {
   const { signIn } = useAuth();
@@ -12,7 +12,8 @@ function SignIn() {
     let isValid = true;
     const newErrors = { email: '', password: '' };
 
-    // Validate email
+    
+
     if (!email) {
       newErrors.email = 'Email is required';
       isValid = false;
@@ -21,7 +22,7 @@ function SignIn() {
       isValid = false;
     }
 
-    // Validate password
+
     if (!password) {
       newErrors.password = 'Password is required';
       isValid = false;
@@ -70,6 +71,10 @@ function SignIn() {
       <button onClick={handleSignIn} className="btn btn-primary">
         Sign In
       </button>
+      <div className="mt-3">
+        <p>First time? <span className="text-primary links">Sign up</span></p>
+        <p><span className="text-primary links">Forgot your password?</span></p>
+      </div>
     </div>
   );
 }

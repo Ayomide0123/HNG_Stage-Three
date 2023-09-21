@@ -15,8 +15,20 @@ import img10 from '../img/pexels_10.jpeg';
 import img11 from '../img/pexels_11.jpeg';
 import img12 from '../img/pexels_12.jpeg';
 import img13 from '../img/pexels_13.jpeg';
-import { DndProvider } from 'react-dnd';
-import { TouchBackend } from 'react-dnd-touch-backend';
+import {
+  DndContext,
+  closestCenter,
+  KeyboardSensor,
+  PointerSensor,
+  useSensor,
+  useSensors,
+} from '@dnd-kit/core';
+import {
+  arrayMove,
+  SortableContext,
+  sortableKeyboardCoordinates,
+  verticalListSortingStrategy,
+} from '@dnd-kit/sortable';
 
 const initialImages = [
   { id: 'image1', src: img1, tags: ['animals'] },
@@ -31,7 +43,7 @@ const initialImages = [
   { id: 'image10', src: img10, tags: ['cars'] },
   { id: 'image11', src: img11, tags: ['books'] },
   { id: 'image12', src: img12, tags: ['cars'] },
-  { id: 'image13', src: img13, tags: ['cars'] }
+  { id: 'image13', src: img13, tags: ['cars'] },
 ];
 
 function Images() {
@@ -40,14 +52,14 @@ function Images() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const preloadImages = () => {
+    const preloadImages = async () => {
       const imagesToPreload = initialImages.map((image) => {
         const img = new Image();
         img.src = image.src;
-        return img;
+        return img.decode();
       });
 
-      Promise.all(imagesToPreload.map((img) => img.decode()))
+      await Promise.all(imagesToPreload)
         .then(() => {
           setImages(initialImages);
           setLoading(false);
@@ -60,17 +72,37 @@ function Images() {
     preloadImages();
   }, []);
 
-  const handleDragStart = (e, id) => {
-    e.dataTransfer.setData('text/plain', id);
+  const sensors = useSensors(
+    useSensor(PointerSensor),
+    useSensor(KeyboardSensor, {
+      coordinateGetter: sortableKeyboardCoordinates,
+    })
+  );
+
+  const handleDragEnd = (event) => {
+    const { active, over } = event;
+
+    if (active.id !== over.id) {
+      setImages((items) => {
+        const oldIndex = items.findIndex((item) => item.id === active.id);
+        const newIndex = items.findIndex((item) => item.id === over.id);
+
+        return arrayMove(items, oldIndex, newIndex);
+      });
+    }
   };
 
-  const handleDragOver = (e) => {
-    e.preventDefault();
+  const handleDragOver = (event) => {
+    event.preventDefault();
   };
 
-  const handleDrop = (e, targetIndex) => {
-    e.preventDefault();
-    const draggedImageId = e.dataTransfer.getData('text/plain');
+  const handleDragStart = (event, id) => {
+    event.dataTransfer.setData('text/plain', id);
+  };
+
+  const handleDrop = (event, targetIndex) => {
+    event.preventDefault();
+    const draggedImageId = event.dataTransfer.getData('text/plain');
     const updatedImages = [...images];
     const draggedImage = updatedImages.find((image) => image.id === draggedImageId);
 
@@ -95,7 +127,11 @@ function Images() {
   };
 
   return (
-    <DndProvider backend={TouchBackend} options={{ enableMouseEvents: true }}>
+    <DndContext
+      sensors={sensors}
+      collisionDetection={closestCenter}
+      onDragEnd={handleDragEnd}
+    >
       <div>
         <div className="search-container">
           <input
@@ -114,26 +150,28 @@ function Images() {
           <div className="loader">Loading...</div>
         ) : (
           <div className="image-gallery">
-            {images.map((image, index) => (
-              <div
-                key={image.id}
-                className="image-item"
-                draggable
-                onDragStart={(e) => handleDragStart(e, image.id)}
-                onDragOver={handleDragOver}
-                onDrop={(e) => handleDrop(e, index)}
-              >
-                <img
-                  src={image.src}
-                  alt={`Index: ${index + 1}`}
-                  className="drag-image"
-                />
-              </div>
-            ))}
+            <SortableContext items={images} strategy={verticalListSortingStrategy}>
+              {images.map((image, index) => (
+                <div
+                  key={image.id}
+                  className="image-item"
+                  onDragOver={handleDragOver}
+                  onDrop={(e) => handleDrop(e, index)}
+                >
+                  <img
+                    src={image.src}
+                    alt={`Index: ${index + 1}`}
+                    className="drag-image"
+                    draggable
+                    onDragStart={(e) => handleDragStart(e, image.id)}
+                  />
+                </div>
+              ))}
+            </SortableContext>
           </div>
         )}
       </div>
-    </DndProvider>
+    </DndContext>
   );
 }
 

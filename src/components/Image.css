@@ -1,4 +1,3 @@
-/* Image.css */
 .image-gallery {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -11,7 +10,7 @@
   border-radius: 8px;
   overflow: hidden;
   cursor: grab;
-  transition: transform 0.2s ease-in-out; /* Add a smooth transition for the transform property */
+  transition: transform 0.2s ease-in-out;
 }
 
 .image-item:hover {
@@ -36,4 +35,8 @@
 
 .image-item:hover .drag-image {
   transform: scale(1.1);
+}
+
+.links:hover {
+  cursor: pointer;
 }
