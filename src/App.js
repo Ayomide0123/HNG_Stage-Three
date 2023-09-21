@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import './App.css';
 import Hero from './components/Hero';
 import Images from './components/Images';
-import SignIn from './components/LogIn';
 import { useAuth } from './components/authContext';
 
 function App() {
