@@ -34,7 +34,7 @@ function App() {
           <Images />
           <button
             onClick={handleSignOut}
-            className="btn btn-danger mr-2" // Bootstrap danger button
+            className="btn btn-danger mr-2"
           >
             Sign Out
           </button>
@@ -47,7 +47,7 @@ function App() {
               placeholder="Email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="form-control" // Bootstrap form control class
+              className="form-control"
             />
           </div>
           <div className="mb-3">
@@ -56,12 +56,12 @@ function App() {
               placeholder="Password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="form-control" // Bootstrap form control class
+              className="form-control"
             />
           </div>
           <button
             onClick={handleSignIn}
-            className="btn btn-primary" // Bootstrap primary button
+            className="btn btn-primary"
           >
             Sign In
           </button>

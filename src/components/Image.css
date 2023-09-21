@@ -1,40 +1,72 @@
-.imgContainer {
-  width: 100%;
-  max-width: 1200px; /* Adjust the maximum width as needed */
-  margin: auto;
-  padding: 0 1rem; /* Add some padding to center the content and improve readability */
-}
-
-.image-list {
+.image-gallery {
   display: grid;
-  grid-template-columns: repeat(
-    auto-fill,
-    minmax(250px, 1fr)
-  ); /* Adjust the minmax values for responsiveness */
-  gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+  padding: 20px;
 }
 
-.listed img {
-  width: 100%;
-  max-width: 100%; /* Ensure images don't exceed their container */
-  height: auto; /* Maintain aspect ratio */
+.search-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+  border: 1px white solid;
+  border-radius: 4px;
+  justify-content: space-between;
 }
 
-/* CSS for loading spinner */
+.search-input {
+  width: 80%;
+  max-width: 400px;
+  padding: 0.5rem;
+  font-size: 1rem;
+  outline: none;
+  border: 0;
+}
+
+.search-button {
+  border: none;
+  border-radius: 4px;
+  padding: 0.5rem 1rem;
+  margin-left: 0.5rem;
+  cursor: pointer;
+}
+
+.search-button img {
+  width: 20px;
+  height: 20px;
+}
+
+/* Loader style for when images are loading */
 .loader {
   display: flex;
   justify-content: center;
-  align-items: center;
-  min-height: 60vh; /* Adjust the minimum height as needed */
-  font-size: 24px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 2rem 0;
 }
 
-/* Media query for smaller screens (e.g., mobile devices) */
+.image-item {
+  width: 100%;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+  transition: box-shadow 0.2s ease-in-out;
+  cursor: grab;
+}
+
+.image-item img {
+  width: 100%;
+  height: auto;
+}
+
+.image-item:active {
+  cursor: grabbing;
+}
+
+/* Responsive layout for smaller screens */
 @media (max-width: 768px) {
-  .image-list {
-    grid-template-columns: repeat(
-      auto-fill,
-      minmax(150px, 1fr)
-    ); /* Adjust for smaller screens */
+  .image-gallery {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
   }
 }
