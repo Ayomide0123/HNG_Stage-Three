@@ -1,26 +1,26 @@
 {
   "files": {
-    "main.css": "/static/css/main.e2473563.css",
-    "main.js": "/static/js/main.e9e2b698.js",
-    "static/media/pexels_10.jpg": "/static/media/pexels_10.c5edc99df5f8fd145622.jpg",
-    "static/media/pexels_7.jpg": "/static/media/pexels_7.18e40fe9ac21877a5608.jpg",
-    "static/media/pexels_12.jpg": "/static/media/pexels_12.50de932591840ec4c175.jpg",
-    "static/media/pexels_5.jpg": "/static/media/pexels_5.7244a5411e9fab705f5b.jpg",
-    "static/media/pexels_9.jpg": "/static/media/pexels_9.966b980f968344fd65ae.jpg",
-    "static/media/pexels_11.jpg": "/static/media/pexels_11.54f18e4268c18931805d.jpg",
-    "static/media/pexels_13.jpg": "/static/media/pexels_13.7beac62f0db97768505c.jpg",
-    "static/media/pexels_6.jpg": "/static/media/pexels_6.78a088574a57f3e2efce.jpg",
-    "static/media/pexels_2.jpg": "/static/media/pexels_2.2fccf594e651f5d19987.jpg",
-    "static/media/pexels_3.jpg": "/static/media/pexels_3.48771415b467c11b6917.jpg",
-    "static/media/pexels_4.jpg": "/static/media/pexels_4.6e5e188e96446c7e0ff0.jpg",
-    "static/media/pexels_1.jpg": "/static/media/pexels_1.f1d03d62a52da346a819.jpg",
-    "static/media/pexels_8.jpg": "/static/media/pexels_8.ae57c76a089ff19d2bdc.jpg",
+    "main.css": "/static/css/main.d62f5fa2.css",
+    "main.js": "/static/js/main.c00e17fe.js",
+    "static/media/pexels_10.jpeg": "/static/media/pexels_10.ca61be5326e17223b22b.jpeg",
+    "static/media/pexels_12.jpeg": "/static/media/pexels_12.82cee319aea4f204eb7e.jpeg",
+    "static/media/pexels_13.jpeg": "/static/media/pexels_13.aeea6db07b58d5db9082.jpeg",
+    "static/media/pexels_11.jpeg": "/static/media/pexels_11.e0bc04b94c8684152642.jpeg",
+    "static/media/pexels_7.jpeg": "/static/media/pexels_7.18df8f865e1df7414a71.jpeg",
+    "static/media/pexels_9.jpeg": "/static/media/pexels_9.4eaf092b16d5a3af71d4.jpeg",
+    "static/media/pexels_5.jpeg": "/static/media/pexels_5.61908e3f4e2137a119a0.jpeg",
+    "static/media/pexels_6.jpeg": "/static/media/pexels_6.a199c5e78531bede5a45.jpeg",
+    "static/media/pexels_2.jpeg": "/static/media/pexels_2.8baf9356ce5d718257a6.jpeg",
+    "static/media/pexels_3.jpeg": "/static/media/pexels_3.411bdbfd14925da535fa.jpeg",
+    "static/media/pexels_4.jpeg": "/static/media/pexels_4.e425efa04ad468c5938a.jpeg",
+    "static/media/pexels_1.jpeg": "/static/media/pexels_1.edbd2aa82dadede4595e.jpeg",
+    "static/media/pexels_8.jpeg": "/static/media/pexels_8.094af0b3ede61f6b032a.jpeg",
     "index.html": "/index.html",
-    "main.e2473563.css.map": "/static/css/main.e2473563.css.map",
-    "main.e9e2b698.js.map": "/static/js/main.e9e2b698.js.map"
+    "main.d62f5fa2.css.map": "/static/css/main.d62f5fa2.css.map",
+    "main.c00e17fe.js.map": "/static/js/main.c00e17fe.js.map"
   },
   "entrypoints": [
-    "static/css/main.e2473563.css",
-    "static/js/main.e9e2b698.js"
+    "static/css/main.d62f5fa2.css",
+    "static/js/main.c00e17fe.js"
   ]
 }

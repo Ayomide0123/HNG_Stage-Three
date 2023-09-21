@@ -1,19 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import './Image.css';
+import './Search.css';
 import searchIcon from '../img/search.png';
-import img1 from '../img/pexels_1.jpg';
-import img2 from '../img/pexels_2.jpg';
-import img3 from '../img/pexels_3.jpg';
-import img4 from '../img/pexels_4.jpg';
-import img5 from '../img/pexels_5.jpg';
-import img6 from '../img/pexels_6.jpg';
-import img7 from '../img/pexels_7.jpg';
-import img8 from '../img/pexels_8.jpg';
-import img9 from '../img/pexels_9.jpg';
-import img10 from '../img/pexels_10.jpg';
-import img11 from '../img/pexels_11.jpg';
-import img12 from '../img/pexels_12.jpg';
-import img13 from '../img/pexels_13.jpg';
+import img1 from '../img/pexels_1.jpeg';
+import img2 from '../img/pexels_2.jpeg';
+import img3 from '../img/pexels_3.jpeg';
+import img4 from '../img/pexels_4.jpeg';
+import img5 from '../img/pexels_5.jpeg';
+import img6 from '../img/pexels_6.jpeg';
+import img7 from '../img/pexels_7.jpeg';
+import img8 from '../img/pexels_8.jpeg';
+import img9 from '../img/pexels_9.jpeg';
+import img10 from '../img/pexels_10.jpeg';
+import img11 from '../img/pexels_11.jpeg';
+import img12 from '../img/pexels_12.jpeg';
+import img13 from '../img/pexels_13.jpeg';
 import { DndProvider } from 'react-dnd';
 import { TouchBackend } from 'react-dnd-touch-backend';
 
@@ -39,10 +40,24 @@ function Images() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    setTimeout(() => {
-      setImages(initialImages);
-      setLoading(false);
-    }, 2000);
+    const preloadImages = () => {
+      const imagesToPreload = initialImages.map((image) => {
+        const img = new Image();
+        img.src = image.src;
+        return img;
+      });
+
+      Promise.all(imagesToPreload.map((img) => img.decode()))
+        .then(() => {
+          setImages(initialImages);
+          setLoading(false);
+        })
+        .catch((error) => {
+          console.error('Error preloading images:', error);
+        });
+    };
+
+    preloadImages();
   }, []);
 
   const handleDragStart = (e, id) => {
@@ -70,15 +85,12 @@ function Images() {
   const filterImages = (query) => {
     setSearchQuery(query);
 
-    
     const filteredImages = initialImages.filter((image) => {
-      
       return image.tags.some((tag) =>
         tag.toLowerCase().includes(query.toLowerCase())
       );
     });
 
-    
     setImages(filteredImages);
   };
 
@@ -111,7 +123,11 @@ function Images() {
                 onDragOver={handleDragOver}
                 onDrop={(e) => handleDrop(e, index)}
               >
-                <img src={image.src} alt={`Index: ${index + 1}`} />
+                <img
+                  src={image.src}
+                  alt={`Index: ${index + 1}`}
+                  className="drag-image"
+                />
               </div>
             ))}
           </div>

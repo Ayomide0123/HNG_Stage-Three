@@ -7,10 +7,28 @@
   --white: white;
 }
 
-* {
+body {
   margin: 0;
   font-family: "Slabo 27px", serif;
-  color: var(--primary);
-  background-color: var(--BG-Color);
-  /* text-align: center; */
+  background-image: linear-gradient(
+    to right top,
+    #b7d3fc,
+    #a5e4fd,
+    #acf2f0,
+    #cafade,
+    #f2ffd4
+  );
+  background-position: 100%;
+}
+
+@keyframes gradientBG {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }

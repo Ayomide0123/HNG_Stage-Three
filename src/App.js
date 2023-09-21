@@ -1,21 +1,12 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './App.css';
 import Hero from './components/Hero';
 import Images from './components/Images';
+import SignIn from './components/LogIn';
 import { useAuth } from './components/authContext';
 
 function App() {
-  const { currentUser, signIn, signOut } = useAuth();
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-
-  const handleSignIn = async () => {
-    try {
-      await signIn(email, password);
-    } catch (error) {
-      console.error('Error signing in:', error);
-    }
-  };
+  const { currentUser, signOut } = useAuth();
 
   const handleSignOut = async () => {
     try {
@@ -39,56 +30,10 @@ function App() {
           </button>
         </>
       ) : (
-        <>
-          <div className="mb-3">
-            <input
-              type="email"
-              placeholder="Email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              className="form-control"
-            />
-          </div>
-          <div className="mb-3">
-            <input
-              type="password"
-              placeholder="Password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              className="form-control"
-            />
-          </div>
-          <button
-            onClick={handleSignIn}
-            className="btn btn-primary"
-          >
-            Sign In
-          </button>
-        </>
+        <SignIn />
       )}
     </div>
   );
 }
 
 export default App;
-
-
-
-
-
-
-
-
-
-// <div className="App">
-//   {isAuthorized ? (
-//     // Render these components when user is authorized
-//     <>
-//       <Hero />
-//       <Images />
-//     </>
-//   ) : (
-//     // Render the SignIn component when user is not authorized
-//     <SignIn />
-//   )}
-// </div>
