@@ -50,6 +50,7 @@ function Images() {
   const [images, setImages] = useState([]);
   const [searchQuery, setSearchQuery] = useState('');
   const [loading, setLoading] = useState(true);
+  const [tappedImage, setTappedImage] = useState(null);
 
   useEffect(() => {
     const preloadImages = async () => {
@@ -126,6 +127,21 @@ function Images() {
     setImages(filteredImages);
   };
 
+  const handleTap = (imageId) => {
+    setTappedImage(imageId);
+    setTimeout(() => {
+      setTappedImage(null);
+    }, 300);
+  };
+
+  useEffect(() => {
+    document.addEventListener('touchstart', (e) => {
+      // Handle touch events here
+      // Example: You can add specific touch event handling logic here
+      // For instance, you can detect touches on specific elements or perform actions on touch events
+    });
+  }, []);
+
   return (
     <DndContext
       sensors={sensors}
@@ -154,9 +170,10 @@ function Images() {
               {images.map((image, index) => (
                 <div
                   key={image.id}
-                  className="image-item"
+                  className={`image-item ${image.id === tappedImage ? 'tapped' : ''}`}
                   onDragOver={handleDragOver}
                   onDrop={(e) => handleDrop(e, index)}
+                  onClick={() => handleTap(image.id)}
                 >
                   <img
                     src={image.src}

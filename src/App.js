@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import Hero from './components/Hero';
 import Images from './components/Images';
@@ -10,10 +10,13 @@ import { useAuth } from './components/authContext';
 function App() {
   const { currentUser, signOut } = useAuth();
   const username = 'User';
+  const [feedback, setFeedback] = useState('');
 
   const handleSignOut = async () => {
     try {
       await signOut();
+      // Set the feedback message when the user signs out
+      setFeedback('Goodbye');
     } catch (error) {
       console.error('Error signing out:', error);
     }
@@ -32,9 +35,13 @@ function App() {
           <Navbar username={username} profileImage={profileImage} />
           <Hero />
           <Images />
+          <div className="feedback-message">{`Welcome, ${username}!`}</div>
         </>
       ) : (
-        <SignIn />
+        <>
+          <SignIn />
+          {feedback && <div className="feedback-message">{feedback}</div>}
+        </>
       )}
     </div>
   );
