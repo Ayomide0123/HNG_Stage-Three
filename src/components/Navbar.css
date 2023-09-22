@@ -1,0 +1,19 @@
+.navbar {
+  background-color: transparent;
+  color: #000000;
+  display: flex;
+  justify-content: flex-end;
+  padding: 10px 20px;
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+}
+
+.profile img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
