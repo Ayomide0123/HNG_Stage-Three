@@ -36,3 +36,10 @@ body {
 .sign_out:hover {
   background-color: rgb(222, 11, 11);
 }
+
+@media screen and (max-width: 768px) {
+  .sign_out {
+    width: 70px;
+    font-size: small;
+  }
+}
