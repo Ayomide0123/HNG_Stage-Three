@@ -10,15 +10,9 @@
 body {
   margin: 0;
   font-family: "Zilla Slab", serif !important;
-  background-image: linear-gradient(
-    to right top,
-    #b7d3fc,
-    #a5e4fd,
-    #acf2f0,
-    #cafade,
-    #f2ffd4
-  );
-  background-position: 100%;
+  background-color: bisque;
+  background-image: url(./img/bg_image.jpg);
+  background-size: cover;
 }
 
 @keyframes gradientBG {

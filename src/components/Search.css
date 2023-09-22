@@ -12,14 +12,14 @@
   padding: 10px;
   font-size: 1rem;
   border: none;
-  color: #000;
+  color: black;
   flex-grow: 1;
   background-color: transparent;
   outline: none;
 }
 
 .search-input::placeholder {
-  color: #ccc;
+  color: green;
 }
 
 .search-button {
@@ -27,18 +27,11 @@
   padding: 10px;
   border: none;
   cursor: pointer;
-  background-color: #004d7a;
+  background-color: wheat;
   color: #fff;
   border-radius: 4px;
 }
 
 .search-button:hover {
-  background-image: linear-gradient(
-    to left bottom,
-    #051937,
-    #004d7a,
-    #008793,
-    #00bf72,
-    #a8eb12
-  );
+  background-color: rgb(150, 243, 150);
 }
