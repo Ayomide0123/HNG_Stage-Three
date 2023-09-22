@@ -23,15 +23,15 @@ function App() {
     <div className="container mt-5">
       {currentUser ? (
         <>
-          <Navbar username={username} profileImage={profileImage} />
-          <Hero />
-          <Images />
           <button
             onClick={handleSignOut}
-            className="btn btn-danger mr-2"
+            className="sign_out"
           >
             Sign Out
           </button>
+          <Navbar username={username} profileImage={profileImage} />
+          <Hero />
+          <Images />
         </>
       ) : (
         <SignIn />

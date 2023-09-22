@@ -26,3 +26,13 @@ body {
     background-position: 0% 50%;
   }
 }
+
+.sign_out {
+  background-color: rgb(238, 43, 43);
+  width: 100px;
+  float: right;
+}
+
+.sign_out:hover {
+  background-color: rgb(222, 11, 11);
+}
