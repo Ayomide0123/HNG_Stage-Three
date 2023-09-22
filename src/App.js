@@ -35,7 +35,6 @@ function App() {
           <Navbar username={username} profileImage={profileImage} />
           <Hero />
           <Images />
-          <div className="feedback-message">{`Welcome, ${username}!`}</div>
         </>
       ) : (
         <>

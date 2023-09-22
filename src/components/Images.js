@@ -28,6 +28,7 @@ import {
   SortableContext,
   sortableKeyboardCoordinates,
   verticalListSortingStrategy,
+  // rectSortingStrategy,
 } from '@dnd-kit/sortable';
 
 const initialImages = [
@@ -163,30 +164,35 @@ function Images() {
         </div>
 
         {loading ? (
-          <div className="loader">Loading...</div>
-        ) : (
-          <div className="image-gallery">
-            <SortableContext items={images} strategy={verticalListSortingStrategy}>
-              {images.map((image, index) => (
-                <div
-                  key={image.id}
-                  className={`image-item ${image.id === tappedImage ? 'tapped' : ''}`}
-                  onDragOver={handleDragOver}
-                  onDrop={(e) => handleDrop(e, index)}
-                  onClick={() => handleTap(image.id)}
-                >
-                  <img
-                    src={image.src}
-                    alt={`Index: ${index + 1}`}
-                    className="drag-image"
-                    draggable
-                    onDragStart={(e) => handleDragStart(e, image.id)}
-                  />
-                </div>
-              ))}
-            </SortableContext>
+  <div className="loader"></div>
+) : (
+  <div className="image-gallery">
+    <SortableContext items={images} strategy={verticalListSortingStrategy}>
+      {images.map((image, index) => (
+        <div
+          key={image.id}
+          className={`image-item ${image.id === tappedImage ? 'tapped' : ''}`}
+          onDragOver={handleDragOver}
+          onDrop={(e) => handleDrop(e, index)}
+          onClick={() => handleTap(image.id)}
+          style={{ position: 'relative', display: 'inline-block' }}
+        >
+          <img
+            src={image.src}
+            alt={`Index: ${index + 1}`}
+            className="drag-image"
+            draggable
+            onDragStart={(e) => handleDragStart(e, image.id)}
+          />
+          <div className="image-text-overlay">
+            {image.tags.join(', ')}
           </div>
-        )}
+        </div>
+      ))}
+    </SortableContext>
+  </div>
+)}
+
       </div>
     </DndContext>
   );
