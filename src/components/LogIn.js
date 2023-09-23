@@ -15,13 +15,11 @@ function SignIn() {
     let isValid = true;
     const newErrors = { email: '', password: '' };
   
-    // Remove extra spaces from the email address
-    const trimmedEmail = email.trim();
-  
-    if (!trimmedEmail) {
+    // Check if the email contains extra spaces
+    if (!email.trim()) {
       newErrors.email = 'Email is required';
       isValid = false;
-    } else if (!/^\S+@\S+\.\S+$/.test(trimmedEmail)) {
+    } else if (!/\S+@\S+\.\S+/.test(email.trim())) {
       newErrors.email = 'Email is invalid';
       isValid = false;
     }
@@ -37,6 +35,7 @@ function SignIn() {
     setErrors(newErrors);
     return isValid;
   };
+  
   
 
   const handleSignIn = async () => {
