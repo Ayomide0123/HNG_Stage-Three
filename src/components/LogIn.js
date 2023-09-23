@@ -2,27 +2,30 @@ import React, { useState } from 'react';
 import { useAuth } from './authContext';
 import './LogIn.css';
 
+
 function SignIn() {
   const { signIn } = useAuth();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [errors, setErrors] = useState({ email: '', password: '' });
+  const [signInError, setSignInError] = useState('');
+
 
   const validateForm = () => {
     let isValid = true;
     const newErrors = { email: '', password: '' };
-
-    
-
-    if (!email) {
+  
+    // Remove extra spaces from the email address
+    const trimmedEmail = email.trim();
+  
+    if (!trimmedEmail) {
       newErrors.email = 'Email is required';
       isValid = false;
-    } else if (!/\S+@\S+\.\S+/.test(email)) {
+    } else if (!/^\S+@\S+\.\S+$/.test(trimmedEmail)) {
       newErrors.email = 'Email is invalid';
       isValid = false;
     }
-
-
+  
     if (!password) {
       newErrors.password = 'Password is required';
       isValid = false;
@@ -30,20 +33,29 @@ function SignIn() {
       newErrors.password = 'Password must be at least 6 characters long';
       isValid = false;
     }
-
+  
     setErrors(newErrors);
     return isValid;
   };
+  
 
   const handleSignIn = async () => {
+    setSignInError(''); // Clear any previous error messages
+    console.log('Attempting sign-in');
+  
     if (validateForm()) {
       try {
         await signIn(email, password);
+        console.log('Sign-in successful');
       } catch (error) {
+        // Display the error message to the user
+        setSignInError(error.message);
         console.error('Error signing in:', error);
       }
     }
   };
+  
+  
 
   return (
     <div className="signin-container">
@@ -68,6 +80,7 @@ function SignIn() {
         />
         <span className="error-message">{errors.password}</span>
       </div>
+      {signInError && <div className="error-message">{signInError}</div>}
       <button onClick={handleSignIn} className="btn btn-primary">
         Sign In
       </button>
