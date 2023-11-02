@@ -1,6 +1,6 @@
 # Drag n' Drop App
 
-A user-friendly image gallery that not only showcases a beautiful collection of images but also offers a login feature. Once logged in, users are able to use the Drag-and-Drop feature to effortlessly rearrange photos within the gallery to their liking."
+A user-friendly image gallery that not only showcases a beautiful collection of images but also offers a login feature. Once logged in, users are able to use the Drag-and-Drop feature to effortlessly rearrange photos within the gallery to their liking.
 
 
 ## Features
